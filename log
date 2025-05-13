@@ -2,3 +2,13 @@ Tue, May 13, 2025  7:50:15 PM:
  tests:  0|5
 total_score: 0/70
 3f0e54c
+Tue, May 13, 2025  7:56:15 PM: 
+ sudoku.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+Compilation failed
+In file included from test.c:5:0:
+sudoku.c: In function 'get_adj_nodes':
+sudoku.c:58:9: error: expected ';' before '}' token
+         }
+         ^
+6fd429e
