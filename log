@@ -62,3 +62,9 @@ sudoku.c:45:5: note: expected 'Node * {aka struct <anonymous> *}' but argument i
      ^~~~~~~~
 cc1.exe: all warnings being treated as errors
 10f3d27
+Wed, May 14, 2025  8:24:46 AM: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  5|3
+total_score: 35/70
+68592ca
