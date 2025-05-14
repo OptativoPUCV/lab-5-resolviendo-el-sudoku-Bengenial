@@ -43,7 +43,7 @@ void print_node(Node *n){
 }
 
 int is_valid(Node *n){
-	int i, j;
+	int i, j, k, p;
 	//verificar las filas
 	for(i = 0; i < 9; i++){
 		int visto[10] = {0};
@@ -57,7 +57,6 @@ int is_valid(Node *n){
 			}
 		}
 	}
-	/*
 	//verificar las columnas
 	for(j = 0; j<9; j++){
 		int visto[10] = {0};
@@ -86,7 +85,7 @@ int is_valid(Node *n){
 				visto[valor] = 1;
 			}
 		}	
-	}*/
+	}
 	return 1;
 }
 
