@@ -43,9 +43,7 @@ void print_node(Node *n){
 }
 
 int is_valid(Node *n){
-	int i, j;
-
-
+	int i, j, k, p;
 	//verificar las filas
 	for(i = 0; i < 9; i++){
 		int visto[10] = {0};
@@ -75,9 +73,9 @@ int is_valid(Node *n){
 	}
 
 	//verificar la submatriz
-	for(int k = 0; k < 9; k++){ //recorrer cada submatriz
+	for(k = 0; k < 9; k++){ //recorrer cada submatriz
 		int visto[10] = {9};
-		for(int p = 0; p < 9; p++){
+		for(p = 0; p < 9; p++){
 			int i=3*(k/3) + (p/3) ;
 			int j=3*(k%3) + (p%3) ;
 			int valor = n->sudo[i][j];
@@ -107,6 +105,7 @@ List *get_adj_nodes(Node *n){
 						free(nuevo);
 					}
 				}
+				return list;
 			}
 		}
 	}
