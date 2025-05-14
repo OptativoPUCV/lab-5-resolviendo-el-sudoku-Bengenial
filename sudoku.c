@@ -57,7 +57,7 @@ int is_valid(Node *n){
 			}
 		}
 	}
-
+	/*
 	//verificar las columnas
 	for(j = 0; j<9; j++){
 		int visto[10] = {0};
@@ -86,7 +86,7 @@ int is_valid(Node *n){
 				visto[valor] = 1;
 			}
 		}	
-	}
+	}*/
 	return 1;
 }
 
