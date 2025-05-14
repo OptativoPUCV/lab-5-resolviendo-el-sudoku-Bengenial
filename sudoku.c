@@ -102,6 +102,8 @@ List *get_adj_nodes(Node *n){
 					nuevo->sudo[i][j] = k;
 					if(is_valid(nuevo))
 						pushBack(list, nuevo);
+					else
+						free(nuevo);
 				}
 			}
 		}
