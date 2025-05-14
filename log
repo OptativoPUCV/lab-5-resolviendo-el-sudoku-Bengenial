@@ -48,3 +48,17 @@ Wed, May 14, 2025  8:20:36 AM:
  tests:  5|3
 total_score: 35/70
 b0f0a5b
+Wed, May 14, 2025  8:24:23 AM: 
+ sudoku.c | 1 +
+ 1 file changed, 1 insertion(+)
+Compilation failed
+In file included from test.c:5:0:
+sudoku.c: In function 'get_adj_nodes':
+sudoku.c:103:18: error: passing argument 1 of 'is_valid' from incompatible pointer type [-Werror=incompatible-pointer-types]
+      if(is_valid(nuevo->sudo))
+                  ^~~~~
+sudoku.c:45:5: note: expected 'Node * {aka struct <anonymous> *}' but argument is of type 'int (*)[9]'
+ int is_valid(Node *n){
+     ^~~~~~~~
+cc1.exe: all warnings being treated as errors
+10f3d27
