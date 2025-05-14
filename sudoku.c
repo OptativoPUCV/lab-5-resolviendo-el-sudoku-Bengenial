@@ -104,7 +104,7 @@ List *get_adj_nodes(Node *n){
 						free(nuevo);
 					}
 				}
-				//return list;
+				return list;
 			}
 		}
 	}
