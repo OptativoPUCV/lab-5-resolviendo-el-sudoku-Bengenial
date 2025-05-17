@@ -123,6 +123,28 @@ int is_final(Node *n){
 }
 
 Node *DFS(Node *initial, int *cont){
+	Stack *pila = createStack();
+	push(pila, initial);
+
+	while(pila != NULL){
+		Node *nodo = top(pila);
+		pop(pila);
+		(*cont)++;
+
+		if(is_final(nodo)) return nodo;
+
+		List *listaAdj = get_adj_nodes(nodo);
+		if(is_empty(listaAdj)){
+			free(nodo);
+			continue;
+		}
+		Node *nodoAdj = first(listaAdj);
+		while (nodoAdj != NULL){
+			push(pila, nodoAdj);
+			nodoAdj = next(listaAdj);
+		}
+
+	}
 	return NULL;
 }
 
