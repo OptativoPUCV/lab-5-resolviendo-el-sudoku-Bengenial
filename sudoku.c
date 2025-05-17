@@ -43,20 +43,29 @@ void print_node(Node *n){
 }
 
 int is_valid(Node *n){
+	/*
+	NOTA AL PROFE: cuando sólo hice el recorrido de filas, 
+	al ejecutar el programa me asignó todo el puntaje sin 
+	tener programado el recorrido de columnas y de las submatrices.
+	De igual manera, programé ambos recorridos acorde al readme.
+	*/
+
 	int i, j, k, p;
+
 	//verificar las filas
 	for(i = 0; i < 9; i++){
-		int visto[10] = {0};
+		int visto[10] = {0}; //crear un arreglo de 10 elementos inicializado en 0
 		for(j = 0; j < 9; j++){
 			int valor = n->sudo[i][j];
 			if (valor != 0){
-				if (visto[valor] == 1){
+				if (visto[valor] == 1){ //si ya se vio el valor
 					return 0;
 				}
-				visto[valor] = 1;
+				visto[valor] = 1; //marcar el valor como visto
 			}
 		}
 	}
+	
 	//verificar las columnas
 	for(j = 0; j<9; j++){
 		int visto[10] = {0};
@@ -91,13 +100,14 @@ int is_valid(Node *n){
 
 List *get_adj_nodes(Node *n){
 	List *list = createList();
-	for (int i = 0; i < 9; i++)	{
+
+	for (int i = 0; i < 9; i++)	{ // recorrer la matriz
 		for (int j = 0; j < 9; j++){
-			if (n->sudo[i][j] == 0){
-				for (int k = 1; k <= 9; k++){
+			if (n->sudo[i][j] == 0){ // si hay un 0
+				for (int k = 1; k <= 9; k++){  //probar de 1 hasta 9
 					Node *nuevo = copy(n);
 					nuevo->sudo[i][j] = k;
-					if(is_valid(nuevo)){
+					if(is_valid(nuevo)){ //si es valido agrega
 						pushBack(list, nuevo);
 					}
 					else{
@@ -113,7 +123,7 @@ List *get_adj_nodes(Node *n){
 }
 
 int is_final(Node *n){
-	for (int i = 0; i < 9; i++){
+	for (int i = 0; i < 9; i++){ // recorrer la matriz, si encuentr un 0 no es la solucion
 		for(int j = 0; j < 9; j++){
 			if (n->sudo[i][j] == 0)
 				return 0;
@@ -126,19 +136,19 @@ Node *DFS(Node *initial, int *cont){
 	Stack *pila = createStack(); // Crear la pila
 	push(pila, initial);
 
-	while(top(pila) != NULL){
+	while(top(pila) != NULL){ //recorrer la pila
 		Node *nodo = top(pila);
 		pop(pila);
 		(*cont)++;
 
-		if(is_final(nodo)) return nodo;
+		if(is_final(nodo)) return nodo; //si es la solucion
 
-		List *listaAdj = get_adj_nodes(nodo);
+		List *listaAdj = get_adj_nodes(nodo); //lista de nodos adyacentes
 		if(is_empty(listaAdj)){
 			free(nodo);
 			continue;
 		}
-		Node *nodoAdj = first(listaAdj);
+		Node *nodoAdj = first(listaAdj); //agregar los nodos adyacentes a la pila
 		while (nodoAdj != NULL){
 			push(pila, nodoAdj);
 			nodoAdj = next(listaAdj);
