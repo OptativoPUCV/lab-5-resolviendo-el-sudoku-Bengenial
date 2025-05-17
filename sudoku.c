@@ -123,10 +123,10 @@ int is_final(Node *n){
 }
 
 Node *DFS(Node *initial, int *cont){
-	Stack *pila = createStack();
+	Stack *pila = createStack(); // Crear la pila
 	push(pila, initial);
 
-	while(pila != NULL){
+	while(top(pila) != NULL){
 		Node *nodo = top(pila);
 		pop(pila);
 		(*cont)++;
@@ -143,6 +143,7 @@ Node *DFS(Node *initial, int *cont){
 			push(pila, nodoAdj);
 			nodoAdj = next(listaAdj);
 		}
+
 
 	}
 	return NULL;
